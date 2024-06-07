@@ -35,7 +35,7 @@ modules:
       - kernel-modules-core 
       - kernel-modules-extra
 
-- type: akmods
+  - type: akmods
     nvidia: true
 
 - type: default-flatpaks
