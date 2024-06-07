@@ -35,7 +35,10 @@ modules:
       - kernel-modules-core 
       - kernel-modules-extra
 
-  - type: default-flatpaks
+- type: akmods
+    nvidia: true
+
+- type: default-flatpaks
     notify: true # Send notification after install/uninstall is finished (true/false)
     system:
       # If no repo information is specified, Flathub will be used by default
