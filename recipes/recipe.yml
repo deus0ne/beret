@@ -4,7 +4,7 @@ name: beret
 description: This is my personal OS image.
 
 # the base image to build on top of (FROM) and the version tag to use
-base-image: ghcr.io/ublue-os/silverblue-nvidia
+base-image: ghcr.io/ublue-os/silverblue-main
 image-version: 40 # latest is also supported if you want new updates ASAP
 
 # module configuration, executed in order
@@ -15,9 +15,6 @@ modules:
       - usr: /usr # copies config/files/usr into your image's /usr.
                   # put configuration files you want in /etc/ on a booted system 
                   # in /usr/etc/ in the image. read more in files module reference.
-
-  - type: akmods
-    nvidia: true
 
   - type: rpm-ostree
     repos:
@@ -37,6 +34,9 @@ modules:
       - kernel-modules 
       - kernel-modules-core 
       - kernel-modules-extra
+
+  - type: akmods
+    nvidia: true
 
   - type: default-flatpaks
     notify: true # Send notification after install/uninstall is finished (true/false)
