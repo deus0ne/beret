@@ -11,7 +11,10 @@ setsebool -P domain_kernel_load_modules on
 
 echo 'CachyOS kernel override'
 rpm-ostree cliwrap install-to-root / && \
-rpm-ostree override remove kernel kernel-core kernel-modules kernel-modules-core kernel-modules-extra --install kernel-cachyos-lto    
+rpm-ostree override remove kernel kernel-core kernel-modules kernel-modules-core kernel-modules-extra --install kernel-cachyos-lto  
+
+echo 'Exclude official kernel from updates'
+sed -i '/^\[updates\]/a\exclude\=kernel\*' /etc/yum.repos.d/fedora-updates.repo
 
 echo 'Install uksmd'
 rpm-ostree install libcap-ng-devel procps-ng-devel uksmd
