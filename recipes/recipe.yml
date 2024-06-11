@@ -36,6 +36,7 @@ modules:
       - kernel-modules-extra
 
   - type: akmods
+    base: nvidia
     install:
       - nvidia
 
