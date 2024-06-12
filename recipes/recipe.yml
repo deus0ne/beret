@@ -39,12 +39,12 @@ modules:
       
   - type: script
     scripts:
-    - cachyos-kernel-override.sh
+      - cachyos-kernel-override.sh
 
   - type: akmods
     nvidia: true
     install:
-      # - nvidia
+      - nvidia
 
   - type: default-flatpaks
     notify: true # Send notification after install/uninstall is finished (true/false)
